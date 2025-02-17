@@ -117,6 +117,24 @@ class LinkedList {
 
     return this;
   }
+
+  remove(index) {
+    if (index < 0 || index >= this.length) return null;
+    if (index === 0) return this.shift();
+    if (index === this.length - 1) return this.pop();
+
+    let current = this.head;
+    let counter = 0;
+    while (counter !== index - 1) {
+      current = current.next;
+      counter++;
+    }
+    let removed = current.next;
+    current.next = removed.next;
+    this.length--;
+
+    return removed;
+  }
 }
 
 const list = new LinkedList();
@@ -174,3 +192,9 @@ list.insert(0, 1);
 console.log("List after insert(0, 1):", list);
 list.insert(2, 3);
 console.log("List after insert(2, 3):", list);
+
+/* ----------------- Test remove method ----------------- */
+list.remove(0);
+console.log("List after remove(0):", list);
+list.remove(1);
+console.log("List after remove(1):", list);
