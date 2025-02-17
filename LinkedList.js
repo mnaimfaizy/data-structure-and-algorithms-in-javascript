@@ -98,6 +98,25 @@ class LinkedList {
 
     return this;
   }
+
+  insert(index, value) {
+    if (index < 0 || index > this.length) return null;
+    if (index === 0) return this.unshift(value);
+    if (index === this.length) return this.push(value);
+
+    const newNode = new Node(value);
+    let current = this.head;
+    let counter = 0;
+    while (counter !== index - 1) {
+      current = current.next;
+      counter++;
+    }
+    newNode.next = current.next;
+    current.next = newNode;
+    this.length++;
+
+    return this;
+  }
 }
 
 const list = new LinkedList();
@@ -149,3 +168,9 @@ list.set(0, 10);
 console.log("List after set(0, 10):", list);
 list.set(3, 40);
 console.log("List after set(3, 40):", list.get(3));
+
+/* ----------------- Test insert method ----------------- */
+list.insert(0, 1);
+console.log("List after insert(0, 1):", list);
+list.insert(2, 3);
+console.log("List after insert(2, 3):", list);
