@@ -58,6 +58,21 @@ class LinkedList {
       this.length++;
     }
   }
+
+  shift() {
+    if (!this.head) return undefined;
+    let currentHead = this.head;
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+      this.length--;
+    } else {
+      this.head = currentHead.next;
+      this.length--;
+    }
+
+    return currentHead;
+  }
 }
 
 const list = new LinkedList();
@@ -87,3 +102,9 @@ list.unshift(1);
 console.log("List after unshift(1):", list);
 list.unshift(2);
 console.log("List after unshift(2):", list);
+
+/* ----------------- Test shift method ----------------- */
+list.shift();
+console.log("List after shift():", list);
+list.shift();
+console.log("List after shift() 1 more time:", list);
