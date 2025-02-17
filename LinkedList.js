@@ -73,6 +73,31 @@ class LinkedList {
 
     return currentHead;
   }
+
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
+    let counter = 0;
+    let current = this.head;
+    while (counter !== index) {
+      current = current.next;
+      counter++;
+    }
+
+    return current;
+  }
+
+  set(index, value) {
+    if (index < 0 || index >= this.length) return null;
+    let counter = 0;
+    let current = this.head;
+    while (counter !== index) {
+      current = current.next;
+      counter++;
+    }
+    current.value = value;
+
+    return this;
+  }
 }
 
 const list = new LinkedList();
@@ -108,3 +133,19 @@ list.shift();
 console.log("List after shift():", list);
 list.shift();
 console.log("List after shift() 1 more time:", list);
+
+/* ----------------- Test get method ----------------- */
+list.push(1);
+list.push(2);
+list.push(3);
+list.push(4);
+list.push(5);
+console.log("List after push(1, 2, 3, 4, 5):", list);
+console.log("Get 0th element:", list.get(0));
+console.log("Get 1st element:", list.get(1));
+
+/* ----------------- Test set method ----------------- */
+list.set(0, 10);
+console.log("List after set(0, 10):", list);
+list.set(3, 40);
+console.log("List after set(3, 40):", list.get(3));
