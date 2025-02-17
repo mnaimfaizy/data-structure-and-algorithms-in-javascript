@@ -45,6 +45,19 @@ class LinkedList {
 
     return current;
   }
+
+  unshift(value) {
+    const newNode = new Node(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = this.head;
+      this.length++;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+      this.length++;
+    }
+  }
 }
 
 const list = new LinkedList();
@@ -68,3 +81,9 @@ list.pop();
 console.log("List after pop() 3 times:", list);
 list.pop();
 console.log("List after pop() 1 more time:", list);
+
+/* ----------------- Test unshift method ----------------- */
+list.unshift(1);
+console.log("List after unshift(1):", list);
+list.unshift(2);
+console.log("List after unshift(2):", list);
