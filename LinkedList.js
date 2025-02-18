@@ -244,6 +244,19 @@ console.log("List after remove(1):", list);
 list.reverse();
 console.log("List after reverse():", { list });
 
+/* ----------------- Test findMiddle method ----------------- */
+const linkedList = new LinkedList();
+linkedList.push(1);
+linkedList.push(2);
+linkedList.push(3);
+linkedList.push(4);
+linkedList.push(5);
+
+console.log("Middle element odd:", linkedList.findMiddle());
+linkedList.push(6);
+console.log("Link list after push(6):", linkedList);
+console.log("Middle element even:", linkedList.findMiddle());
+
 /* ----------------- Test Has Loop method ----------------- */
 console.log("Has loop:", list.hasLoop());
 list.tail.next = list.head;
