@@ -151,9 +151,21 @@ class LinkedList {
 
     return this;
   }
+
+  findMiddle() {
+    let slow = this.head;
+    let fast = this.head;
+    while (fast && fast.next) {
+      slow = slow.next;
+      fast = fast.next.next;
+    }
+
+    return slow;
+  }
 }
 
 const list = new LinkedList();
+
 /* ----------------- Test push method ----------------- */
 console.log("Initial list:", list);
 list.push(1);
@@ -218,3 +230,5 @@ console.log("List after remove(1):", list);
 /* ----------------- Test reverse method ----------------- */
 list.reverse();
 console.log("List after reverse():", { list });
+
+exports.linkedList = new LinkedList();
