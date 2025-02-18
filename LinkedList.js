@@ -135,6 +135,22 @@ class LinkedList {
 
     return removed;
   }
+
+  reverse() {
+    let temp = this.head;
+    this.head = this.tail;
+    this.tail = temp;
+    let next = temp.next;
+    let prev = null;
+    for (let i = 0; i < this.length; i++) {
+      next = temp.next;
+      temp.next = prev;
+      prev = temp;
+      temp = next;
+    }
+
+    return this;
+  }
 }
 
 const list = new LinkedList();
@@ -198,3 +214,7 @@ list.remove(0);
 console.log("List after remove(0):", list);
 list.remove(1);
 console.log("List after remove(1):", list);
+
+/* ----------------- Test reverse method ----------------- */
+list.reverse();
+console.log("List after reverse():", { list });
