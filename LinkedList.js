@@ -162,6 +162,19 @@ class LinkedList {
 
     return slow;
   }
+
+  hasLoop() {
+    let slow = this.head;
+    let fast = this.head;
+
+    while (fast && fast.next) {
+      slow = slow.next;
+      fast = fast.next.next;
+      if (slow === fast) return true;
+    }
+
+    return false;
+  }
 }
 
 const list = new LinkedList();
@@ -230,5 +243,11 @@ console.log("List after remove(1):", list);
 /* ----------------- Test reverse method ----------------- */
 list.reverse();
 console.log("List after reverse():", { list });
+
+/* ----------------- Test Has Loop method ----------------- */
+console.log("Has loop:", list.hasLoop());
+list.tail.next = list.head;
+console.log("Has loop:", list.hasLoop());
+list.tail.next = null;
 
 exports.linkedList = new LinkedList();
