@@ -8,3 +8,6 @@ console.log(myDoublyLinkedList);
 
 myDoublyLinkedList.unshift(5);
 console.log("Unshifted:", myDoublyLinkedList);
+
+myDoublyLinkedList.shift();
+console.log("Shifted:", myDoublyLinkedList);
