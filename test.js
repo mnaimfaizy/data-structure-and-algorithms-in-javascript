@@ -1,13 +1,12 @@
 const DoublyLinkedList = require("./DoublyLinkedList");
 
-const myDoublyLinkedList = new DoublyLinkedList(10);
-console.log(myDoublyLinkedList);
+const myDoublyLinkedList = new DoublyLinkedList(0);
+myDoublyLinkedList.push(1);
+myDoublyLinkedList.push(2);
+myDoublyLinkedList.push(3);
 
-myDoublyLinkedList.push(20);
-console.log(myDoublyLinkedList);
+console.log("Get the 2 element: ", myDoublyLinkedList.get(1).value);
+console.log("Get the 3 element: ", myDoublyLinkedList.get(2).value);
 
-myDoublyLinkedList.unshift(5);
-console.log("Unshifted:", myDoublyLinkedList);
-
-myDoublyLinkedList.shift();
-console.log("Shifted:", myDoublyLinkedList);
+myDoublyLinkedList.set(1, 10);
+console.log("Get the 2 element after set: ", myDoublyLinkedList.get(1).value);
