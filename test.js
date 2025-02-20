@@ -16,3 +16,7 @@ console.log(
   "Get the 3 element after insert: ",
   myDoublyLinkedList.get(2).value
 );
+
+console.log("List before removing the item: ", myDoublyLinkedList);
+myDoublyLinkedList.remove(1);
+console.log("Remove the item in index 1: ", myDoublyLinkedList);
