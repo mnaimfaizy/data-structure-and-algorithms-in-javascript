@@ -1,11 +1,12 @@
-const Stack = require("./Stack.js");
+const Queue = require("./Queue");
 
-const stack = new Stack(1);
-stack.push(2);
-stack.push(3);
-console.log(stack);
+const queue = new Queue(1);
+queue.enqueue(2);
+queue.enqueue(3);
 
-stack.pop();
-console.log(stack);
-stack.pop();
-console.log(stack);
+console.log("Queue:", queue);
+
+console.log(queue.dequeue());
+console.log(queue.dequeue());
+
+console.log("After dequeue:", queue);
