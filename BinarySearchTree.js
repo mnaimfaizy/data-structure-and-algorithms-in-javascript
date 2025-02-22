@@ -50,6 +50,33 @@ class BST {
       }
     }
   }
+
+  contains(value) {
+    // If the tree is empty, then return false
+    if (this.root === null) return false;
+
+    // Start from the root and move down the tree
+    let temp = this.root;
+
+    // Keep moving down the tree until we find the node with the value we are looking for
+    while (temp) {
+      // If the value is less than the data of the current node, then move to the left
+      if (value < temp.data) {
+        temp = temp.left;
+      }
+      // If the value is greater than the data of the current node, then move to the right
+      else if (value > temp.data) {
+        temp = temp.right;
+      }
+      // If the value is equal to the data of the current node, then return true
+      else {
+        return true;
+      }
+    }
+
+    // If we reach this point, then the value is not in the tree
+    return false;
+  }
 }
 
 module.exports = BST;

@@ -16,3 +16,7 @@ console.log(bst.root);
 //   left: Node { data: 5, left: Node { data: 2, left: null, right: null }, right: null },
 //   right: Node { data: 15, left: null, right: null }
 // }
+
+// Check if the tree contains a value
+console.log(bst.contains(2)); // true
+console.log(bst.contains(20)); // false
