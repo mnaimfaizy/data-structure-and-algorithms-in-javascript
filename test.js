@@ -1,15 +1,13 @@
-const HashTable = require("./HashTable");
+const Graph = require("./Graph");
 
-const ht = new HashTable();
-console.log(ht);
+const g = new Graph();
 
-ht.set("hello", "world");
-console.log(ht);
-ht.set("goodbye", "world");
-console.log(ht);
+console.log("Empty adjacency list:", g);
 
-console.log(ht.get("hello"));
+g.addVertex("A");
+console.log("Adjacency list with vertex A:", g);
 
-console.log(ht.keys());
-ht.set("test", "value");
-console.log(ht.keys());
+g.addVertex("B");
+
+g.addEdge("A", "B");
+console.log("Adjacency list with edge A-B:", g);
