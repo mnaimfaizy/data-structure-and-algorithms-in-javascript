@@ -1,23 +1,14 @@
-const Graph = require("./Graph");
+const Heap = require("./Heap");
 
-const g = new Graph();
+const heap = new Heap();
+heap.insert(99);
+heap.insert(57);
+heap.insert(36);
+heap.insert(25);
+heap.insert(10);
 
-console.log("Empty adjacency list:", g);
-
-g.addVertex("A");
-console.log("Adjacency list with vertex A:", g);
-
-g.addVertex("B");
-g.addVertex("C");
-
-g.addEdge("A", "B");
-console.log("Adjacency list with edge A-B:", g);
-g.addEdge("A", "C");
-g.addEdge("B", "C");
-console.log("Adjacency list with edges A-B and A-C and B-C:", g);
-
-g.removeEdge("A", "B");
-console.log("Adjacency list with edge A-B removed:", g);
-
-g.removeVertex("B");
-console.log("Adjacency list with vertex B removed:", g);
+console.log(heap.getHeap()); // [99, 57, 36, 25, 10]
+heap.insert(100);
+console.log(heap.getHeap()); // [100, 99, 36, 57, 10, 25]
+heap.insert(55);
+console.log(heap.getHeap()); // [100, 99, 55, 57, 10, 25, 36]
