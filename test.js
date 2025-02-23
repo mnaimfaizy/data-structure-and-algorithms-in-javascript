@@ -12,3 +12,9 @@ heap.insert(100);
 console.log(heap.getHeap()); // [100, 99, 36, 57, 10, 25]
 heap.insert(55);
 console.log(heap.getHeap()); // [100, 99, 55, 57, 10, 25, 36]
+
+heap.remove();
+console.log(heap.getHeap()); // [99, 57, 55, 36, 10, 25]
+
+heap.remove();
+console.log(heap.getHeap()); // [57, 36, 55, 25, 10]
