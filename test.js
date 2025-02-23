@@ -1,22 +1,15 @@
-const BST = require("./BinarySearchTree");
+const HashTable = require("./HashTable");
 
-// Create a new instance of the BST class
-let bst = new BST();
+const ht = new HashTable();
+console.log(ht);
 
-// Insert some nodes
-bst.insert(10);
-bst.insert(5);
-bst.insert(15);
-bst.insert(2);
+ht.set("hello", "world");
+console.log(ht);
+ht.set("goodbye", "world");
+console.log(ht);
 
-// Print the tree
-console.log(bst.root);
-// Output: Node {
-//   data: 10,
-//   left: Node { data: 5, left: Node { data: 2, left: null, right: null }, right: null },
-//   right: Node { data: 15, left: null, right: null }
-// }
+console.log(ht.get("hello"));
 
-// Check if the tree contains a value
-console.log(bst.contains(2)); // true
-console.log(bst.contains(20)); // false
+console.log(ht.keys());
+ht.set("test", "value");
+console.log(ht.keys());
