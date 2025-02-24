@@ -1,20 +1,10 @@
-const Heap = require("./Heap");
+const BST = require("./BinarySearchTree.js");
 
-const heap = new Heap();
-heap.insert(99);
-heap.insert(57);
-heap.insert(36);
-heap.insert(25);
-heap.insert(10);
+const tree = new BST();
+tree.rInsert(10);
+tree.rInsert(5);
+tree.rInsert(15);
 
-console.log(heap.getHeap()); // [99, 57, 36, 25, 10]
-heap.insert(100);
-console.log(heap.getHeap()); // [100, 99, 36, 57, 10, 25]
-heap.insert(55);
-console.log(heap.getHeap()); // [100, 99, 55, 57, 10, 25, 36]
-
-heap.remove();
-console.log(heap.getHeap()); // [99, 57, 55, 36, 10, 25]
-
-heap.remove();
-console.log(heap.getHeap()); // [57, 36, 55, 25, 10]
+console.log(tree.rContains(5)); // true
+console.log(tree.rContains(15)); // true
+console.log(tree.rContains(20)); // false

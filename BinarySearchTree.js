@@ -77,6 +77,35 @@ class BST {
     // If we reach this point, then the value is not in the tree
     return false;
   }
+
+  rContains(value, currentNode = this.root) {
+    if (currentNode === null) return false;
+    if (currentNode.data === value) return true;
+
+    if (value < currentNode.data) {
+      return this.rContains(value, currentNode.left);
+    } else {
+      return this.rContains(value, currentNode.right);
+    }
+  }
+
+  #rInsert(data, currentNode = this.root) {
+    if (currentNode === null) {
+      return new Node(data);
+    }
+
+    if (data < currentNode.data) {
+      currentNode.left = this.#rInsert(data, currentNode.left);
+    } else if (data > currentNode.data) {
+      currentNode.right = this.#rInsert(data, currentNode.right);
+    }
+    return currentNode;
+  }
+
+  rInsert(data) {
+    if (this.root === null) this.root = new Node(data);
+    this.#rInsert(data);
+  }
 }
 
 module.exports = BST;
