@@ -106,6 +106,41 @@ class BST {
     if (this.root === null) this.root = new Node(data);
     this.#rInsert(data);
   }
+
+  #minValue(currentNode) {
+    while (currentNode.left !== null) {
+      currentNode = currentNode.left;
+    }
+    return currentNode.data;
+  }
+
+  #delete(value, currentNode) {
+    if (currentNode === null) return null;
+
+    if (value < currentNode.data) {
+      currentNode.left = this.#delete(value, currentNode.left);
+    } else if (value > currentNode.data) {
+      currentNode.right = this.#delete(value, currentNode.right);
+    } else {
+      if (currentNode.left === null && currentNode.right === null) {
+        currentNode = null;
+      } else if (currentNode.left === null) {
+        currentNode = currentNode.right;
+      } else if (currentNode.right === null) {
+        currentNode = currentNode.left;
+      } else {
+        let minValue = this.#minValue(currentNode.right);
+        currentNode.data = minValue;
+        currentNode.right = this.#delete(minValue, currentNode.right);
+      }
+    }
+
+    return currentNode;
+  }
+
+  delete(value) {
+    this.root = this.#delete(value, this.root);
+  }
 }
 
 module.exports = BST;
