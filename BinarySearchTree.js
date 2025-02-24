@@ -141,6 +141,21 @@ class BST {
   delete(value) {
     this.root = this.#delete(value, this.root);
   }
+
+  BFS() {
+    // Breath First Search
+    let queue = [];
+    let results = [];
+    let currentNode = this.root;
+    queue.push(currentNode);
+    while (queue.length) {
+      currentNode = queue.shift();
+      results.push(currentNode.data);
+      if (currentNode.left) queue.push(currentNode.left);
+      if (currentNode.right) queue.push(currentNode.right);
+    }
+    return results;
+  }
 }
 
 module.exports = BST;
