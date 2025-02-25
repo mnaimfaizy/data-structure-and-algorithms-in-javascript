@@ -156,6 +156,42 @@ class BST {
     }
     return results;
   }
+
+  DFSPreOrder() {
+    // Depth First Search Pre Order
+    let results = [];
+    function traverse(currentNode) {
+      results.push(currentNode.data);
+      if (currentNode.left) traverse(currentNode.left);
+      if (currentNode.right) traverse(currentNode.right);
+    }
+    traverse(this.root);
+    return results;
+  }
+
+  DFSPostOrder() {
+    // Depth First Search Post Order
+    let results = [];
+    function traverse(currentNode) {
+      if (currentNode.left) traverse(currentNode.left);
+      if (currentNode.right) traverse(currentNode.right);
+      results.push(currentNode.data);
+    }
+    traverse(this.root);
+    return results;
+  }
+
+  DFSInOrder() {
+    // Depth First Search in Order
+    let results = [];
+    function traverse(currentNode) {
+      if (currentNode.left) traverse(currentNode.left);
+      results.push(currentNode.data);
+      if (currentNode.right) traverse(currentNode.right);
+    }
+    traverse(this.root);
+    return results;
+  }
 }
 
 module.exports = BST;
