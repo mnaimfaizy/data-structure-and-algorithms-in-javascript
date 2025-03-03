@@ -12,6 +12,14 @@ class LinkedList {
     this.length = 0;
   }
 
+  printList() {
+    let temp = this.head;
+    while (temp !== null) {
+      console.log(temp.value);
+      temp = temp.next;
+    }
+  }
+
   push(value) {
     const newNode = new Node(value);
     if (!this.head) {
@@ -175,6 +183,25 @@ class LinkedList {
 
     return false;
   }
+
+  findKthElementFromEnd(k) {
+    if (k < 1) return null;
+
+    let slow = this.head;
+    let fast = this.head;
+
+    for (let i = 0; i < k; i++) {
+      if (!fast) return null;
+      fast = fast.next;
+    }
+
+    while (fast) {
+      slow = slow.next;
+      fast = fast.next;
+    }
+
+    return slow;
+  }
 }
 
 const list = new LinkedList();
@@ -262,5 +289,9 @@ console.log("Has loop:", list.hasLoop());
 list.tail.next = list.head;
 console.log("Has loop:", list.hasLoop());
 list.tail.next = null;
+
+/* ----------------- Test findKthElementFromEnd method ----------------- */
+linkedList.printList();
+console.log("Kth element from end:", linkedList.findKthElementFromEnd(2));
 
 exports.linkedList = new LinkedList();
